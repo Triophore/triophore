@@ -1,0 +1,385 @@
+{% load static %}
+<style>
+.jumbotron{
+  margin-top:4%;
+  margin-bottom:0%;
+  min-height:40%;
+  color:white !important;
+  background-image: url("static/img/slider/slider12.jpg") !important;
+}
+.zoom {
+  transition: transform .2s; /* Animation */
+}
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.bgimage {
+  margin-top:4.5%;
+  width:100%;
+
+  background: url("{% static 'img/banner.jpg' %}") no-repeat center center fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+
+  
+}
+.bgimage h5 {
+  color:white;
+  text-shadow:2px 2px #333;
+}
+
+.video-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    video {
+      object-fit: cover;
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+}
+
+.home-page{
+    margin-top: 100vh;
+}
+.video_overlay{
+top:20%;
+  background-color:#000;
+    z-index:300000;
+}
+
+header {
+  position: relative;
+  background-color: black;
+  height: 100vh;
+  min-height: 25rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+header video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+header .container {
+  position: relative;
+  z-index: 2;
+  top:30%;
+}
+
+header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+@media (pointer: coarse) and (hover: none) {
+  header {
+    background: url('https://source.unsplash.com/XT5OInaElMw/1600x900') black no-repeat center center scroll;
+  }
+  header video {
+    display: none;
+  }
+  .text-white{
+    color:white !important; font-color:white !important;
+  }
+
+</style>
+
+
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+     <source src="{% static 'cover/cover.mp4' %}" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1" style="color:white !important; font-color:white !important; text-align:center;">
+        <h1 class="text-white animated bounceInUp" style="color:white !important; font-color:white !important; font-size:8rem;">Triophore Technologies</h1>
+        <p class="lead mb-0 text-white animated fadeIn">Lets create something new</p>
+        <a href="#" id="toexp" class=""><i style="font-size:10rem; margin-top:2%; color:white;" class="fas fa-caret-down animated infinite bounce"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--div class="video-container">
+ <div class="container-fluid video_overlay">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" >
+        <h5>Hello, world! Full width Hero-unit header</h5>
+        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+      </div>
+    </div>
+  </div>
+    <video playsinline autoplay muted loop poster="" id="bgvid">
+      <source src="{% static 'cover/Mt_Baker.mp4' %}" type="video/mp4">
+    </video>
+</div-->
+
+<!--section class="bgimage" id="cover">
+ 
+</section-->
+
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    //$("#cover").height = screen.height; //- $("#main_nav").height();
+    console.log(screen.height);
+    $("#toexp").click(function(e){
+       $("html, body").delay(500).animate({
+        scrollTop: $('#exp').offset().top - 80
+        }, 500);
+      e.preventDefault();
+      return false;
+    });
+  });
+</script>
+
+
+
+<section class="" style="background-color:#4392F1; color:white; ">
+ <div class="container-fluid" style="padding:1%;" id="exp">
+    <div class="row">
+      <div class="col-sm-12" style="">
+          <h1 class="textbig1" style="text-align:center; color:white;">AREAS OF EXPERTISE</h1>
+		  <div class="heading-border"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</br>
+<div class="container" style="">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/328.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/337.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/346.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/436.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/532.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/763.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/860.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/927.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <img src="{% static 'img/index/944.png' %}" class="img-responsive"></img>
+          </div>
+          <div class="panel-footer">
+            <h3>ML</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<!--
+-->
+	
+
+
+
+
+
+<section class="" style="background-color:#DF2935; color:white;">
+ <div class="container" style="padding:2%;">
+    <div class="row">
+      <div class="col-sm-6" style="">        
+		 <h4 style="color:white;">Subscribe to our newsletter</h4>
+      </div>
+	   <div class="col-sm-6" style="">
+        <form class="form-inline" action="/">
+		  <div class="form-group">
+			<label for="email-sub">Email address:</label>
+			<input type="email" class="form-control" id="email-sub" placeholder="mail@domain.com" style="color:white;">
+		  </div>
+		  <button type="button" id="btn-subscribe" class="btn btn-info"><i class="fas fa-check"></i>&nbsp;&nbsp;Submit</button>
+		</form>
+      </div>
+    </div>
+	<div id="myModal" class="modal fade" role="dialog" style="border-radius:0px;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">Thank-you for your response</h3>
+      </div>
+      <div class="modal-body">
+        <h4 id="subs_modal"></h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fas fa-check"></i>&nbsp;&nbsp;Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+<script>
+	$('#btn-subscribe').on('click',function(e){
+		var email = $("#email-sub").val();
+		if(ValidateEmail(email) && email != null && email != ""){
+		$("#subs_modal").text(email);
+		$('#myModal').modal('show');
+		}
+		return false;
+	});
+function ValidateEmail(mail) 
+{
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+  {
+    return true;
+  }
+    alert("You have entered an invalid email address!")
+    return false;
+}
+</script>
+
+<section  style="background-color:#2E4052; width:100%; color:white !important;">
+	<div class="container-fluid">
+		 <div class="container">
+			 <div class="row">
+				<div class="col-sm-12">
+					<!--div class="panel panel-default" >
+					  <div class="panel-body"-->
+					  <div style=" margin-top:5%;  margin-bottom:5%;">
+							  <h1 class="textbig1" style="text-align:center; color:white;">CONTACT US</h1>
+							  <div class="heading-border"></div>
+								<form action="/action_page.php">
+								  <div class="form-group">
+									<label for="email">Email address:</label>
+									<input type="email" class="form-control" id="email">
+								  </div>
+								  <div class="form-group">
+									<label for="fname">Full Name:</label>
+									<input type="text" class="form-control" id="fname">
+								  </div>
+								  <div class="form-group">
+								  <label for="comment">Message:</label>
+								  <textarea class="form-control" rows="2" id="comment"></textarea>
+								</div>
+								  <button type="button" id="contact-form" class="btn btn-success"><i class="fas fa-check"></i>&nbsp;&nbsp;Submit</button>
+								</form>
+								</div>
+					  <!--/div>
+					</div-->
+				
+				</div>
+			  </div>
+		 </div>
+	</div>
+</section>
+
+<script>
+	$(document).on('#contact-form','click',function(e){
+			return false;
+	});
+</script>

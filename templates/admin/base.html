@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% load i18n static jet_tags %}
+
+{% block extrahead %}
+    <script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+    {{ block.super }}
+
+{% endblock %}
+
+{% block blockbots %}
+    {{ block.super }}
+    <!-- FIXING SELECT 2 JQUERY ISSUE-->
+    <script src="{% static 'admin/js/vendor/jquery/jquery.js' as url %}{{ url|jet_append_version }}" type="text/javascript"></script>
+    <script src="{% static 'admin/js/jquery.init.js' as url %}{{ url|jet_append_version }}"></script>
+
+{% endblock %}

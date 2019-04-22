@@ -1,9 +1,11 @@
 from django.shortcuts import render
+
 from . import models
 # Create your views here.
 from django.core import serializers
 from django.http import HttpResponse
 from .models import Details
+ 
 
 
 def home(request):
@@ -14,7 +16,26 @@ def home(request):
     return render(request,'website/home/index.html',context)
 
 def page(request,page):
-    return render(request,'website/pages/'+page+'.html')
+    try:
+        print(page)
+        if page == "products":
+            content = request.GET['content']
+            return render(request,'website/pages/products/'+content+'.html')
+        if page == "services":
+            content = request.GET['content']
+            return render(request,'website/pages/services/'+content+'.html')
+        if page == "wiki":
+            category = request.GET['category']
+            subcategory = request.GET['subcategory']
+            return render(request,'website/wiki/index.html')
+        if page == "news":
+            content = request.GET['content']
+            return render(request,'website/news/'+content+'.html')
+        else:
+            return render(request,'website/pages/'+page+'.html')
+    except:
+        return render(request,'website/pages/'+page+'.html')
+
 
 def menu(request):
     menus = models.MenuItem.objects.all()
